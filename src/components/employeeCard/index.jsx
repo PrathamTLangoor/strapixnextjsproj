@@ -6,9 +6,28 @@ import { GrUserManager } from "react-icons/gr";
 import { IoPerson } from "react-icons/io5";
 import Link from 'next/link';
 import { MdDelete } from "react-icons/md";
+import { fetcher } from '../../../lib/api';
 import { useState } from 'react';
 
 const EmployeeCard = ({ employees, managers, deleteToggle }) => {
+    const handleSubmit = async (employeeId) => {
+        try {
+            const options = {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `${process.env.NEXT_PUBLIC_STRAPI_JWT_BEARER_TOKEN}`,
+                    // 'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ data: {status: 'INACTIVE'} }),
+            };
+            console.log(options);
+            const response = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/employees/${employeeId}`, options);
+            console.log('Response:', response);
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
+
     return (
         <div className='flex flex-row gap-4 pl-3 mt-5 flex-wrap'>
             {employees &&
@@ -50,7 +69,7 @@ const EmployeeCard = ({ employees, managers, deleteToggle }) => {
                                             <span className='font-bold'>Manager:</span> {manager.attributes.first_name} {manager.attributes.last_name}
                                         </div>
                                     </div>
-                                    <button className='text-red-600'><MdDelete /></button>
+                                    <button onClick={() => handleSubmit(employee.id)} className='text-red-600'><MdDelete /></button>
                                 </div>
                             ) : (
                                 <Link href={"/employee/[employeeId]"} as={`/employee/${employee.attributes.employee_id}`} key={employee.employee_id} className='flex gap-4 justify-evenly items-center bg-black text-white focus:bg-black focus:text-white hover:bg-white border-2 border-[#000] hover:border-blue-500 focus:border-[#000] hover:text-black py-3 px-4 rounded-md w-[24%]' >

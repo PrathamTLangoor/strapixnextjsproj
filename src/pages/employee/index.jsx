@@ -21,7 +21,7 @@ const Employee = ({ employees, managers }) => {
         </Link>
         <div className='mr-3 mt-3 flex gap-4'>
           <Link href={"/employee/add"} className='py-2 px-3 border border-black rounded-full hover:bg-black hover:text-blue-500'>
-            + Add Employee
+            Add Employee
           </Link>
           <button 
             onClick={toggleRemove} 

@@ -68,11 +68,11 @@ const EmployeeDetail = ({ employee, manager, project }) => {
                     <div className='border-white border-2 p-3 rounded-md w-max'>
                         <div className='flex gap-3 items-center'>
                             <GiPositionMarker className='text-[1.2rem]' />
-                            <div className='text-black text-[2.5rem] italic'> Position</div>
+                            <div className='text-black text-[2.5rem] italic'> Designation</div>
                         </div>
                         <hr className='w-[34rem] text-black' />
                         <div className='text-black mt-4 text-[1.4rem]'>
-                            {employee.attributes.position}
+                            {employee.attributes.designation}
                         </div>
                     </div>
                     <div className='border-white border-2 p-3 rounded-md w-max'>
