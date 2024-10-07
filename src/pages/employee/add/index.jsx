@@ -1,8 +1,11 @@
 import { useState } from 'react';
 import { fetcher } from '../../../../lib/api';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 const EmployeeForm = () => {
+  const router = useRouter();
+  const [message,setMessage] = useState("");
   const placeholderImg ="https://img.freepik.com/free-vector/user-circles-set_78370-4704.jpg?t=st=1728278742~exp=1728282342~hmac=2af652a14a9cc95ed0e3e7fa04b9420523b690d6ae7be7e7ee6e33104efecccc&w=1480";
   
   const [imageSrc, setImageSrc] = useState(placeholderImg)
@@ -80,6 +83,13 @@ const EmployeeForm = () => {
       const response = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/employees`, options);
       console.log('Response:', response);
       console.log(e)
+      if(response.meta){
+        setMessage("Successfully created an Employee Entry")
+        router.push("/employee")
+      }
+      else{
+        setMessage("Could not create an Employee entry")
+      }
     } catch (error) {
       console.error('Error:', error);
     }
@@ -97,11 +107,11 @@ const EmployeeForm = () => {
             <div className='flex flex-col items-center text-center'>
               {
                 imageSrc === placeholderImg? (
-                  <Image src={imageSrc} width={300} height={300} className='rounded-full border-2 mb-2 grayscale' alt='Profile Picture' />
+                  <Image src={imageSrc} width={300} height={300} className='rounded-full border-2 mb-2 grayscale -z-10' alt='Profile Picture' />
                 )
                 :
                 (
-                  <Image src={imageSrc} width={300} height={300} className='rounded-full border-2 mb-2 ' alt='Profile Picture' />
+                  <Image src={imageSrc} width={300} height={300} className='rounded-full border-2 mb-2 -z-10' alt='Profile Picture' />
                 )
               }
               <input className='file-input' type="file" name="profile_img" onChange={handleFileChange} />
@@ -171,6 +181,9 @@ const EmployeeForm = () => {
             className='bg-blue-200 border border-blue-600 rounded-lg p-4 w-56 active:bg-blue-300 hover:bg-blue-300'>
             SUBMIT
           </button>
+        </div>
+        <div>
+          {message}
         </div>
       </form>
     </div>

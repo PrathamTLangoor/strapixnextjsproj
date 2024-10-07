@@ -14,7 +14,7 @@ const Header = () => {
             <span className='italic font-light text-blue-500'>Go Go </span>Employee
           </div>
         </Link>
-        <div className='flex gap-7 mr-4 font-bold'>
+        <div className='flex items-center gap-7 mr-4 font-bold'>
           <Link href={"/"} className='text-white hover:text-blue-500'>
             Home
           </Link>
@@ -29,6 +29,9 @@ const Header = () => {
           </Link> 
           <Link href={"/about-us"} className='text-white hover:text-blue-500'>
             About Us
+          </Link> 
+          <Link href={"/login"} className='text-white bg-blue-500 p-2 rounded-lg hover:bg-white hover:text-blue-500'>
+            Log In
           </Link> 
         </div>
       </div>

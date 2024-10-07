@@ -19,7 +19,7 @@ const Employee = ({ employees, managers }) => {
           <IoChevronBack size={20} className='no-underline' />
           <div className='text-black text-[1.2rem]'>Back</div>
         </Link>
-        <div className='mr-3 mt-3 flex gap-4'>
+        <div className='mr-3 mt-6 flex gap-4'>
           <Link href={"/employee/add"} className='py-2 px-3 border border-black rounded-full hover:bg-black hover:text-blue-500'>
             Add Employee
           </Link>
