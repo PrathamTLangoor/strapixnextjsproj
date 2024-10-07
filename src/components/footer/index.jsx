@@ -4,7 +4,7 @@ import { SiApacheopenoffice } from "react-icons/si";
 
 const Footer = () => {
     return (
-        <div className='fixed bottom-0 h-32 bg-black w-full'>
+        <div className=' h-32 bg-black w-full'>
             <div className='h-full flex items-end'>
                 <div className='w-full'>
                     <hr className='text-slate-500 opacity-25 w-full' />

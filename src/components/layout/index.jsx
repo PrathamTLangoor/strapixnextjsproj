@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
             <div className='mt-[70px]'>
                 {children}
             </div>
-            <Footer />
+            {/* <Footer /> */}
         </>
     )
 }

@@ -10,6 +10,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { GiPositionMarker } from "react-icons/gi";
 import { FaMapLocation } from "react-icons/fa6";
 import { HiMiniIdentification } from "react-icons/hi2";
+import { GoProjectRoadmap } from "react-icons/go";
 import { FaStar } from "react-icons/fa6";
 
 const EmployeeDetail = ({ employee, manager, project }) => {
@@ -29,7 +30,7 @@ const EmployeeDetail = ({ employee, manager, project }) => {
     }
 
     return (
-        <div className="w-full pb-[130px]">
+        <div className="w-full ">
             <Link href={"/employee"} className=' flex gap-1 items-center pt-2 pl-2 w-[85px] hover:underline hover:decoration-blue-500 underline-offset-2'>
                 <IoChevronBack size={20}  className='no-underline'/>
                 <div className='text-black text-[1.2rem]'>
@@ -129,7 +130,7 @@ const EmployeeDetail = ({ employee, manager, project }) => {
                     </div>
                     <div className='border-white border-2 p-3 rounded-md w-max'>
                         <div className='flex gap-3 items-center'>
-                            <FaStar className='text-[1.2rem]' />
+                            <GoProjectRoadmap className='text-[1.2rem]' />
                             <div className='text-black text-[2.5rem] italic'> Projects Handled</div>
                         </div>
                         <hr className='w-[34rem] text-black' />

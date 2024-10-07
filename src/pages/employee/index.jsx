@@ -27,7 +27,7 @@ const Employee = ({ employees, managers }) => {
             onClick={toggleRemove} 
             className='py-2 px-3 border border-black rounded-full hover:bg-black hover:text-blue-500'
           >
-            {remove ? 'Cancel Removal' : 'Remove Employee'}
+            {remove ? 'Return' : 'Remove Employee'}
           </button>
         </div>
       </div>

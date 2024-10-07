@@ -3,7 +3,9 @@ import { fetcher } from '../../../../lib/api';
 import Image from 'next/image';
 
 const EmployeeForm = () => {
-  const [imageSrc, setImageSrc] = useState("https://img.freepik.com/free-vector/user-circles-set_78370-4704.jpg?t=st=1728278742~exp=1728282342~hmac=2af652a14a9cc95ed0e3e7fa04b9420523b690d6ae7be7e7ee6e33104efecccc&w=1480")
+  const placeholderImg ="https://img.freepik.com/free-vector/user-circles-set_78370-4704.jpg?t=st=1728278742~exp=1728282342~hmac=2af652a14a9cc95ed0e3e7fa04b9420523b690d6ae7be7e7ee6e33104efecccc&w=1480";
+  
+  const [imageSrc, setImageSrc] = useState(placeholderImg)
   const [formData, setFormData] = useState({
     employee_id: '',
     first_name: '',
@@ -30,7 +32,6 @@ const EmployeeForm = () => {
     console.log(src)
     setImageSrc(src)
   };
-
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -86,15 +87,23 @@ const EmployeeForm = () => {
 
   return (
     <div className='pb-36'>
-      <div className='text-[3rem] font-semibold w-full text-center'>
+      <div className='text-[3rem] font-semibold w-full py-4 text-center text-blue-500'>
         New Employee
       </div>
-      <form className='flex flex-col gap-3 mt-4'>
+      <form className='flex flex-col gap-3 mt-6'>
         <div className='grid grid-cols-3 gap-20 px-20'>
           <div className='flex flex-col gap-1 mb-6'>
             <div className=' text-[2rem] text-center mb-2'>Profile Image</div>
             <div className='flex flex-col items-center text-center'>
-              <Image src={imageSrc} width={300} height={300} className='rounded-full border-2 mb-2' alt='Profile Picture' />
+              {
+                imageSrc === placeholderImg? (
+                  <Image src={imageSrc} width={300} height={300} className='rounded-full border-2 mb-2 grayscale' alt='Profile Picture' />
+                )
+                :
+                (
+                  <Image src={imageSrc} width={300} height={300} className='rounded-full border-2 mb-2 ' alt='Profile Picture' />
+                )
+              }
               <input className='file-input' type="file" name="profile_img" onChange={handleFileChange} />
             </div>
           </div>
