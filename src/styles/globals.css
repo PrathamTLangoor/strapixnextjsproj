@@ -27,3 +27,31 @@ body {
     text-wrap: balance;
   }
 }
+
+.file-input {
+  height: 50px;
+  outline: none;
+  /* margin-left: 132px; */
+  margin-top: 20px;
+}
+
+.file-input:before {
+  content: "Select an Image";
+  background: #bfdbfe ;
+  width: 100%;
+  height: 50px;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  border: 1px solid #2563eb;
+  border-radius: 8px;
+  line-height: 35px;
+  color: black;
+  padding-top: 6px;
+  display: block;
+  cursor: pointer;
+}
+
+.file-input:hover::before{
+  background-color: #93c5fd;
+}

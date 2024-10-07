@@ -40,7 +40,7 @@ const Employee = ({ employees, managers }) => {
 export default Employee;
 
 export async function getStaticProps() {
-  const employeeResponse = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/employees?populate=profile_img`);
+  const employeeResponse = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/employees?populate=*`);
   const managerResponse = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/managers`);
   console.log(employeeResponse);
   return {
