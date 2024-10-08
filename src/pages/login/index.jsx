@@ -34,6 +34,7 @@ const Login = () => {
             console.log("Response", response.status);
             if (response.jwt) {
                 setMessage("Successfully Logged In");
+                localStorage.setItem('isAuthenticated', 'true');
                 router.push("/")
             }
             else {
@@ -48,7 +49,7 @@ const Login = () => {
     return (
         <div className='flex items-center justify-center pt-24'>
             <div className=' shadow-lg w-80 rounded-lg'>
-                <form onSubmit={handleSubmit} className='text-center p-6'>
+                <form className='text-center p-6'>
                     <div className='text-[3rem] text-blue-500 m-2'>
                         Login
                     </div>
@@ -60,7 +61,7 @@ const Login = () => {
                         <label htmlFor="password" className='text-[1.4rem]'>Password:</label>
                         <input id="password" name="password" type="password" className='border-b w-full p-2' onChange={handleChange} />
                     </div>
-                    <button type="submit" className='bg-blue-500 mt-4 py-1 px-2 rounded-md text-[1.2rem] text-white'>Submit</button>
+                    <button type="submit" onClick={handleSubmit} className='bg-blue-500 mt-4 py-1 px-2 rounded-md text-[1.2rem] text-white'>Submit</button>
                     {message !== "Incorrect Username or Password" ?
                         (
                             <div>{message}</div>

@@ -1,6 +1,8 @@
 import React from 'react'
 import { Calendar, Whisper, Popover, Badge } from 'rsuite';
 import 'rsuite/dist/rsuite.css';
+import { IoChevronBack } from "react-icons/io5";
+import Link from 'next/link';
 
 const Attendance = () => {
     function getTodoList(date) {
@@ -28,7 +30,7 @@ const Attendance = () => {
 
     function renderCell(date) {
         const list = getTodoList(date);
-        console.log(list); 
+        console.log(list);
         const displayList = list.filter((item, index) => index < 2);
 
         if (list.length) {
@@ -64,15 +66,18 @@ const Attendance = () => {
                 </ul>
             );
         }
-
         return null;
     }
 
     return (
         <div>
+            {/* <Link href={"/"} className='flex gap-1 items-center pt-2 pl-2 w-[85px] hover:underline hover:decoration-blue-500 underline-offset-2'>
+                <IoChevronBack size={20} className='no-underline' />
+                <div className='text-black text-[1.2rem]'>Back</div>
+            </Link> */}
             <div className='text-[3rem] font-semibold w-full text-center'>Attendance</div>
             <div className='flex justify-end w-full'>
-                <div className='w-[75%] mt-12 mr-12 bg-blue-200 rounded-lg border-2 border-blue-400'>
+                <div className='w-[75%] mt-6 mr-6 bg-blue-200 rounded-lg border-2 border-blue-400'>
                     <Calendar bordered renderCell={renderCell} cellClassName={date => (date.getDay() % 2 ? 'bg-gray' : undefined)} />
                 </div>
             </div>

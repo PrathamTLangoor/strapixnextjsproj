@@ -1,8 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { SiApacheopenoffice } from "react-icons/si";
 import { RiSpeedUpLine } from "react-icons/ri";
+import { IoIosLogOut } from "react-icons/io";
 const Header = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
+      setIsLoggedIn(isAuthenticated);
+    }
+  }, []);
+
+  const handleLogOut = async () => {
+    localStorage.setItem("isAuthenticated", "false");
+    setIsLoggedIn(false);
+  };
   return (
     <div className='w-full p-5 bg-black rounded-bl-xl fixed top-0'>
       <div className='flex justify-between items-center'>
@@ -21,18 +35,36 @@ const Header = () => {
           <Link href={"/employee"} className='text-white hover:text-blue-500'>
             Employees
           </Link>
-          <Link href={"/manager"} className='text-white hover:text-blue-500'>
+          {/* <Link href={"/manager"} className='text-white hover:text-blue-500'>
             Managers
-          </Link> 
+          </Link>
           <Link href={"/project"} className='text-white hover:text-blue-500'>
             Projects
-          </Link> 
-          <Link href={"/about-us"} className='text-white hover:text-blue-500'>
+          </Link> */}
+          {/* <Link href={"/about-us"} className='text-white hover:text-blue-500'>
             About Us
-          </Link> 
+          </Link> */}
+          <Link href={"/attendance"} className='text-white hover:text-blue-500'>
+            Attendance
+          </Link>
           <Link href={"/login"} className='text-white bg-blue-500 p-2 rounded-lg hover:bg-white hover:text-blue-500'>
             Log In
-          </Link> 
+          </Link>
+          <Link href={"/login"} onClick={handleLogOut} className='bg-red-700 text-white text-[1.4rem] rounded-md p-2 hover:text-red-950'>
+            <IoIosLogOut />
+          </Link>
+          {/* {isLoggedIn ? (
+            <Link href={"/login"} onClick={handleLogOut} className='bg-red-800 text-white text-[1.4rem] rounded-md p-2'>
+              <IoIosLogOut />
+            </Link>
+          )
+            :
+            (
+              <Link href={"/login"} className='text-white bg-blue-500 p-2 rounded-lg hover:bg-white hover:text-blue-500'>
+                Log In
+              </Link>
+            )
+          } */}
         </div>
       </div>
     </div>
