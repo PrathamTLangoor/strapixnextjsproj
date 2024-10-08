@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { SiApacheopenoffice } from "react-icons/si";
-import { RiSpeedUpLine } from "react-icons/ri";
 import { IoIosLogOut } from "react-icons/io";
+import { Avatar } from 'rsuite';
+import 'rsuite/Avatar/styles/index.css'
+import { fetcher } from '../../../lib/api';
+
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -52,6 +55,10 @@ const Header = () => {
           </Link>
           <Link href={"/login"} onClick={handleLogOut} className='bg-red-700 text-white text-[1.4rem] rounded-md p-2 hover:text-red-950'>
             <IoIosLogOut />
+          </Link>
+          <Link href={"/profile"} className='text-white flex gap-1 items-center bg-white p-2 rounded-full'>
+            <Avatar circle className='text-white w-8 h-8' />
+            <div className='text-[1rem] text-black'>Profile</div>
           </Link>
           {/* {isLoggedIn ? (
             <Link href={"/login"} onClick={handleLogOut} className='bg-red-800 text-white text-[1.4rem] rounded-md p-2'>

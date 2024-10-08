@@ -35,6 +35,7 @@ const Login = () => {
             if (response.jwt) {
                 setMessage("Successfully Logged In");
                 localStorage.setItem('isAuthenticated', 'true');
+                sessionStorage.setItem('Username', formData.identifier)
                 router.push("/")
             }
             else {
