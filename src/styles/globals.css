@@ -65,3 +65,8 @@ body {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+.whisper-a {
+  color: #1675e0;
+  text-decoration: underline;
+}

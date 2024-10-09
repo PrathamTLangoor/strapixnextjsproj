@@ -1,6 +1,9 @@
 import React from 'react'
 import { Calendar, Whisper, Popover, Badge } from 'rsuite';
-import 'rsuite/dist/rsuite.css';
+import 'rsuite/Calendar/styles/index.css'
+import 'rsuite/Popover/styles/index.css'
+import 'rsuite/Badge/styles/index.css'
+// import 'rsuite/dist/rsuite.css';
 import { IoChevronBack } from "react-icons/io5";
 import Link from 'next/link';
 
@@ -50,7 +53,7 @@ const Attendance = () => {
                             </Popover>
                         }
                     >
-                        <a>{moreCount} more</a>
+                        <a className='whisper-a'>{moreCount} more</a>
                     </Whisper>
                 </li>
             );
@@ -75,7 +78,7 @@ const Attendance = () => {
                 <IoChevronBack size={20} className='no-underline' />
                 <div className='text-black text-[1.2rem]'>Back</div>
             </Link> */}
-            <div className='text-[3rem] font-semibold w-full text-center'>Attendance</div>
+            <div className='text-[3rem] font-semibold w-full pt-4 text-center'>Attendance</div>
             <div className='flex justify-end w-full'>
                 <div className='w-[75%] mt-6 mr-6 bg-blue-200 rounded-lg border-2 border-blue-400'>
                     <Calendar bordered renderCell={renderCell} cellClassName={date => (date.getDay() % 2 ? 'bg-gray' : undefined)} />
