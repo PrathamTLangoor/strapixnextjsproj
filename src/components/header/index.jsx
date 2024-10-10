@@ -18,6 +18,7 @@ const Header = () => {
 
   const handleLogOut = async () => {
     localStorage.setItem("isAuthenticated", "false");
+    sessionStorage.setItem("Username", "");
     setIsLoggedIn(false);
   };
   return (

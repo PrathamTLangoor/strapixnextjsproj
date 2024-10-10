@@ -1,6 +1,4 @@
 import localFont from "next/font/local";
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -15,16 +13,6 @@ const geistMono = localFont({
 
 
 export default function Home() {
-  const router = useRouter();
-
-  useEffect(() => {
-    const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
-
-    if (!isAuthenticated) {
-      router.push('/login');
-    }
-  }, [router]);
-  
   return (
     <>
       <div className=" text-[3rem] pt-4 font-bold text-center">
